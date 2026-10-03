@@ -1,0 +1,17 @@
+{
+  "name": "elapsed-time-estimator",
+  "version": "0.1.0",
+  "description": "Estimates remaining time for a task by computing the average rate of progress over completed units using a rolling average.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": "./src/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {}
+}
