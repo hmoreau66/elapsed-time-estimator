@@ -31,3 +31,10 @@ The trade-off: the estimate only reflects recent behavior. If the task speeds up
 ## Edge case you will hit
 
 If the two timestamps at the window's edges are identical (for example two `record()` calls in the same millisecond, or a non-monotonic clock), the rate is reported as `null` and `remainingSeconds` is `null` rather than `Infinity`. The library refuses to fabricate a rate it cannot compute honestly. Before the first two distinct-time points exist, `rate` and `remainingSeconds` are also `null`.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
